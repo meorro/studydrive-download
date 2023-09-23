@@ -8,5 +8,5 @@ A script to download PDFs from [Studydrive](https://studydrive.net/)
 
 ## Usage
 1. Open the Studydrive page with the PDF you want to download
-2. Open the terminal/command line and navigate to the folder where<br />you saved the `studydrive-download.py` script
+2. Open the terminal/command line and navigate to the folder where you saved<br />the `studydrive-download.py` script
 3. Run `python3 studydrive-download.py` and follow the instructions
