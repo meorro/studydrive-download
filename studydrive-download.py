@@ -4,10 +4,10 @@
 # Author: meorro
 #
 # Usage: python3 studydrive-download.py
-#
-# Result: The PDF will be downloaded to the current folder with your chosen name.
+#        python3 studydrive-download.py --name="writeYourPDFNameHere.pdf"
 ####################################################################################################
 
+import sys
 import requests
 
 # Studydrive document URL
@@ -26,12 +26,20 @@ pdf_url = pdf_url.replace("\\", "")
 # replace "teaser" PDF URL with "original" PDF URL
 pdf_url = pdf_url.replace("teaser", "original")
 
-# enter download name for the PDF
-pdf_name = input("How would you like to name the PDF? (e.g. studydrive.pdf): ")
+# if the program is invoked with the --name flag,
+# use the name given by the user
+if len(sys.argv) > 1 and sys.argv[1].startswith("--name="):
+    pdf_name = sys.argv[1].split("--name=")[1]
 
-# if the user has not entered the ".pdf" extension, add it
-if ".pdf" not in pdf_name:
-    pdf_name += ".pdf"
+    # if the user has not entered the ".pdf" extension, add it
+    if ".pdf" not in pdf_name:
+        pdf_name += ".pdf"
+
+# otherwise, use the PDF file name given by the author
+else:
+    # search for the key "filename" in the source
+    # and extract the value of the key
+    pdf_name = studydrive_url_source.split('"filename":"')[1].split('","')[0]
 
 # download the PDF and save it to the current folder
 pdf_file = requests.get(pdf_url)
