@@ -1,6 +1,8 @@
 # studydrive-download
 A script to download PDFs from [Studydrive](https://studydrive.net/)
 
+**Update: The exploit has been patched by Studydrive and is no longer functional.**
+
 ## Prerequisites
 1. Install Python >= 3.7
 2. Open the terminal/command line and run `pip3 install requests`
